@@ -1,0 +1,88 @@
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	grid-gap: 2.5rem;
+}
+
+.project {
+	box-shadow: 0 5px 15px -5px #00000070;
+	border-radius: 6px;
+	overflow: hidden;
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 20rem;
+		object-fit: cover;
+
+		&:hover {
+			// opacity: 0.5;
+			transform: scale(1.05);
+			border-color: $secondary-color;
+			@include easeOut;
+		}
+	}
+
+	&__content {
+		padding: 2rem;
+	}
+
+	&__description {
+		color: $tertiary-color;
+		font-size: 1.6rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+		background: lighten($primary-color, .1);
+		box-shadow: 0 5px 5px -5px #00000070;
+	}
+
+	// delay each nav item slide by 0.1s
+	@for $x from 1 through 3 {
+		&:nth-child(#{$x}) {
+			animation-delay: $x * 0.2s;
+		}
+	}
+}
+
+////////////////////////////////////////
+// LIST
+.list {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+
+	&__item {
+		font-size: 1.6rem;
+		text-transform: uppercase;
+		font-weight: 800;
+		margin-bottom: .7rem;
+
+	}
+
+	&__item::before {
+		content: "";
+		display: inline-block;
+		height: 2rem;
+		width: 2rem;
+		margin-right: .7rem;
+		margin-top: 1rem;
+		position: relative;
+		top: .4rem;
+
+		// Older browsers
+		background-image: url(../../assets/images/chevron-thin-right.svg);
+		background-size: cover;
+
+		//Newer browsers - masks
+		@supports (-webkit-mask-image: url()) or (mask-image: url()) {
+			background-color: $tertiary-color; // #eb2f64;
+			-webkit-mask-image: url(../../assets/images/chevron-thin-right.svg);
+			-webkit-mask-size: cover;
+			mask-image: url(../../assets/images/chevron-thin-right.svg);
+			mask-size: cover;
+			background-image: none;
+		}
+
+	}
+}

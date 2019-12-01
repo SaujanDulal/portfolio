@@ -1,0 +1,61 @@
+.l-service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 3rem;
+}
+
+.service-cards {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px -5px #00000070;
+    transition: all .2s;
+
+    // #82ccdd
+    &__icon {
+        display: inline-block;
+        width: 7rem;
+        height: 7rem;
+        border: 3px solid $secondary-color;
+        color: $secondary-color;
+        transform: rotate(45deg);
+        margin-bottom: 3rem;
+        margin-top: 1.6rem;
+        transition: 0.3s linear;
+        position: relative;
+        z-index: 0;
+
+        & i {
+            line-height: 6rem;
+            transform: rotate(-45deg);
+            font-size: 3rem;
+        }
+    }
+
+    &__details {
+        font-size: 1.6rem;
+    }
+
+    &__heading {
+        color: $secondary-color;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        background: lighten($primary-color, .1);
+        box-shadow: 0 5px 5px -5px #00000070;
+    }
+
+
+
+    &:hover {
+        transform: translateY(-.5rem) scale(1.09);
+    }
+
+    // delay each nav item slide by 0.1s
+    @for $x from 1 through 3 {
+        &:nth-child(#{$x}) {
+            animation-delay: $x * 0.1s;
+        }
+    }
+
+}

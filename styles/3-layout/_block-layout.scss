@@ -1,0 +1,33 @@
+ body {
+     @include background;
+     background: rgba($primary-color, $background-opacity);
+     //  overflow: hidden;
+ }
+
+ .main-home {
+     padding: 6rem;
+
+     @include mediaSm {
+         padding: 6rem 4rem;
+     }
+
+     //  overflow: hidden;
+
+ }
+
+
+ .main-about {
+     padding: 6rem;
+
+ }
+
+ .main-service {
+     padding: 8rem 5rem 5rem;
+     width: 100%;
+
+ }
+
+ .main-work {
+     padding: 6rem;
+
+ }

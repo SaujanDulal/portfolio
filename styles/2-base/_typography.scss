@@ -1,0 +1,17 @@
+body {
+    font-family: $font-family;
+    font-weight: 400;
+    line-height: 1.7;
+    color: set-text-color($primary-color);
+    letter-spacing: 1px;
+    hyphens: auto;
+    text-align: justify;
+}
+
+.heading-primary {
+    font-size: 5rem;
+}
+
+.heading-secondary {
+    font-size: 2rem;
+}

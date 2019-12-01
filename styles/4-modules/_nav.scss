@@ -1,0 +1,159 @@
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	opacity: 0.9;
+	visibility: hidden;
+	z-index: 20;
+
+	&.show {
+		visibility: visible;
+	}
+
+	&__Image-container,
+	&__List-items {
+		float: left;
+		width: 50%;
+		height: 100vh;
+		overflow: hidden; // no scroll bars
+	}
+
+	// ul container
+	&__List-items {
+		margin: 0;
+		padding: 0;
+		background: darken($primary-color, 2);
+		transform: translate3d(0, -100%, 0);
+		@include easeOut;
+
+		&.show {
+			// slide in from top
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	//  Image container
+	&__Image-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $primary-color;
+		transform: translate3d(0, 100%, 0);
+		@include easeOut;
+		background-blend-mode: darken;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&.show {
+			// slide in from bottom
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	// Image
+	&__Image {
+		box-shadow: 0 13px 22px 10px rgba(0, 0, 0, .3);
+		width: 22rem;
+		height: 35rem;
+		background: $my-image;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 2rem;
+	}
+
+	// all li item
+	&__List-item {
+		position: relative;
+		top: 20%;
+		left: 35%;
+		transform: translate3d(600px, 0, 0);
+		padding: 1rem;
+
+		@include easeOut;
+
+		&.show {
+			// slide in from right
+			transform: translate3d(0, 0, 0);
+		}
+
+		& i {
+			font-size: 2rem;
+		}
+	}
+}
+
+// delay each nav item slide by 0.1s
+@for $x from 1 through 5 {
+	.nav__List-item:nth-child(#{$x}) {
+		transition-delay: $x * 0.1s;
+	}
+}
+
+// navLi <a> tags
+.List-item__item {
+	letter-spacing: 4px;
+	display: inline-block;
+	position: relative;
+	font-size: 2rem;
+	text-transform: uppercase;
+	padding: 1rem 0;
+	font-weight: 800;
+	color: #fff;
+	@include easeOut;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 0%;
+		content: '.';
+		color: transparent;
+		background: $secondary-color;
+		height: 2px;
+		@include easeOut;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+
+	&.current {
+		color: $secondary-color;
+	}
+}
+
+@include mediaMd {
+
+	.nav__List-items,
+	.nav__Image-container {
+		float: none;
+		width: 100%;
+		min-height: 0;
+		background-size: cover;
+
+		&.show {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	.nav__List-items {
+		height: 75vh;
+		transform: translate3d(-100%, 0, 0);
+		font-size: 2.5rem;
+	}
+
+	.nav__Image-container {
+		height: 25vh;
+		transform: translate3d(100%, 0, 0);
+	}
+
+	.nav__Image {
+		// background: $my-image-mobile;
+		width: 17rem;
+		height: 17rem;
+	}
+}

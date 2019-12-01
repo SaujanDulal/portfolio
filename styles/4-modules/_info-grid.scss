@@ -1,0 +1,80 @@
+.info-grid {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: '   info-grid-image      info-grid__paragraph         info-grid__paragraph'
+		'   info-grid-resume    info-grid--one       info-grid--one'
+		'   socialmedia-icons   about-me-card--two   about-me-card--two';
+
+	@include mediaMd {
+		grid-template-areas: 'info-grid-image ''info-grid-resume''socialmedia-icons''info-grid__paragraph'
+			'info-grid--one''info-grid--two''about-me-card--one''about-me-card--two''about-me-card--three';
+
+		grid-template-columns: 1fr;
+	}
+
+	@media screen and (max-width: 900px) {
+		grid-template-areas: 'info-grid-image ''info-grid-resume''socialmedia-icons''info-grid__paragraph'
+			'info-grid--one''info-grid--two''about-me-card--one''about-me-card--two''about-me-card--three';
+
+		grid-template-columns: 1fr;
+	}
+
+	&__image-container {
+		display: flex;
+		background-blend-mode: darken;
+
+		animation-delay: 0.4s;
+
+		&:hover .info-grid__image {
+			transform: scale(1.05);
+		}
+	}
+
+	&__image {
+		grid-area: info-grid-image;
+		width: 22rem;
+		height: 35rem;
+		margin: auto;
+		border-radius: 2rem;
+		box-shadow: 0 13px 22px 10px rgba(0, 0, 0, .3);
+		@include easeOut;
+	}
+
+	&__paragraph {
+		grid-area: info-grid__paragraph;
+		font-size: 2rem;
+		padding: 0.5rem;
+
+		&:first-letter {
+			// color: #3498db;
+			color: $secondary-color;
+			float: left;
+			font-family: Georgia;
+			font-size: 10rem;
+			line-height: 6rem;
+			padding-top: 4px;
+			padding-right: 8px;
+			padding-left: 3px;
+		}
+	}
+
+	&-resume {
+		text-align: center;
+		grid-area: info-grid-resume;
+
+		@media screen and (max-width: 900px) {
+			margin-top: 2rem;
+		}
+	}
+
+	&--one {
+		grid-area: info-grid--one;
+		font-size: 2rem;
+	}
+
+	&--two {
+		grid-area: about-me-card--two;
+		font-size: 2rem;
+	}
+}

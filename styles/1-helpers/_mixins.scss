@@ -1,0 +1,64 @@
+@mixin easeOut {
+    transition: all .5s ease-out;
+}
+
+@mixin background {
+    @if $show-home-image {
+        &.background {
+            background: $home-image;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba($primary-color, $background-opacity);
+            }
+        }
+    }
+}
+
+// 1em = 16px, no matter what we have in our root font size 
+
+// ORDER : BASE + TYPOGRAPHY + GENERAL LAYOUT + GRID + PAGELAYOUT + COMPONENTS
+
+// media queries
+@mixin mediaSm {
+
+    // 500px/16 d = 31.25em
+    @media screen and (max-width: 31.25em) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+
+    // 768/16 = 48em
+    @media screen and (max-width: 48em) {
+        @content;
+    }
+}
+
+@mixin mediaLg {
+
+    // 769/16 = 48.0625em and 1170/16= 73.125em
+    @media screen and (min-width: 48.0625em) and (max-width: 73.125em) {
+        @content;
+    }
+}
+
+@mixin mediaXl {
+
+    // 1170/16 = 73.125em
+    @media screen and (min-width: 73.125em) {
+        @content;
+    }
+}

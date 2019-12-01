@@ -1,0 +1,40 @@
+// Menu button
+
+.hamburger-menu {
+	cursor: pointer;
+	@include easeOut;
+
+	&--position {
+		position: absolute;
+		z-index: 23;
+		right: 3.5rem;
+		top: 3.5rem;
+	}
+
+	&__hyphen {
+		width: 2.8rem;
+		height: 3px;
+		margin: 0 0 5px 0;
+		@include easeOut;
+		// background: set-text-color($primary-color);
+	}
+
+	/* transform menu to X */
+	&.close {
+		transform: rotate(180deg);
+
+		.hamburger-menu__hyphen {
+			&--rotate-right {
+				transform: rotate(45deg) translate(5px, 5px);
+			}
+
+			&--hide {
+				opacity: 0;
+			}
+
+			&--rotate-left {
+				transform: rotate(-45deg) translate(7px, -6px);
+			}
+		}
+	}
+}

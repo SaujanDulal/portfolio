@@ -1,0 +1,155 @@
+.myintroduction-box {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 16;
+
+
+    &:first-letter {
+        color: $secondary-color;
+        // float: left;
+        font-family: Georgia;
+        font-size: 7.5rem;
+        line-height: 6rem;
+
+
+    }
+
+
+    &__name {
+        animation-delay: 1s;
+    }
+
+
+    &__details {
+        padding: 0.2rem 1rem;
+        animation-delay: 2s;
+
+    }
+}
+
+
+.about-header {
+    &__heading {
+        // text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: 700;
+        color: $secondary-color;
+    }
+
+}
+
+.service-header {
+
+    &__heading {
+        // text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: 700;
+        color: $secondary-color;
+    }
+
+    &__secondary-heading {
+        font-size: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    /*  &__border {
+        width: 20rem;
+        height: 2px;
+        background: $tertiary-color;
+        // background: $secondary-color;
+        margin: 1rem auto 4rem;
+    } */
+}
+
+.work-header {
+    &__heading {
+        // text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: 700;
+
+        color: $secondary-color;
+    }
+
+    &__secondary-heading {
+        font-size: 2rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.tec-stack {
+
+    &__heading {
+        text-align: center;
+        margin: 4rem;
+        font-weight: 700;
+        font-size: 4rem;
+        animation-delay: 0.7s;
+
+        @include mediaSm {
+            font-size: 3rem;
+        }
+    }
+
+
+}
+
+
+.tec-logos {
+    display: grid;
+    grid-template-columns: repeat(5, 6rem);
+    grid-column-gap: 14rem;
+    grid-row-gap: 5rem;
+    justify-content: center;
+    align-items: center;
+
+    // delay each nav item slide by 0.1s
+    @for $x from 1 through 11 {
+        figure:nth-child(#{$x}) {
+            animation-delay: $x * 0.1s;
+        }
+    }
+
+
+
+    &__figcaption {
+        width: 12rem;
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    @include mediaLg {
+        display: grid;
+        grid-template-columns: repeat(4, 7rem);
+
+
+    }
+
+
+    @include mediaMd {
+        display: grid;
+        grid-template-columns: repeat(3, 7rem);
+    }
+
+    @include mediaSm {
+        display: grid;
+        grid-template-columns: repeat(2, 7rem);
+
+    }
+}
+
+
+
+.blog {
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__header {
+        font-size: 5rem;
+    }
+}

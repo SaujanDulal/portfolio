@@ -1,0 +1,167 @@
+/*******************
+ Box Sizing
+ *******************/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+
+    @include mediaXl {
+        font-size: 75%; // 1rem = 12, 12/16 = 75%
+    }
+
+
+
+    @include mediaLg {
+        font-size: 62.5%;
+    }
+
+    @include mediaMd {
+        font-size: 56.25%; // 1rem = 9px , 9/16 = 56.25%
+    }
+
+    @include mediaSm {
+        font-size: 50%; // 1rem = 8px, 8/16 = 50%
+    }
+
+
+
+
+
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/****************************
+ Generic Margins and Paddings
+ ****************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+    margin: 0;
+    padding: 0;
+
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
+
+
+/*******************
+ Lists
+ *******************/
+ul {
+    list-style: none;
+}
+
+/*******************
+ Forms and buttons
+ *******************/
+input,
+textarea,
+select,
+button {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+/* I usually expand input and textarea to full-width */
+input[type="text"],
+textarea {
+    width: 100%;
+}
+
+/* More friendly border */
+input,
+textarea,
+button {
+    border: 1px solid gray;
+}
+
+/* Some defaults for one-liner buttons */
+button {
+    padding: 0.75em 1em;
+    border-radius: 0;
+    line-height: 1;
+    background-color: transparent;
+}
+
+button * {
+    pointer-events: none;
+}
+
+/***********************************
+ Easy responsive for media elements
+ ***********************************/
+img,
+svg,
+iframe,
+video,
+object,
+embed {
+    display: block;
+    max-width: 100%;
+}
+
+/*******************
+ Useful table styles
+ *******************/
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/*******************
+ The hidden attribute
+ *******************/
+[hidden] {
+    display: none !important;
+}
+
+/*******************
+ Noscript
+ *******************/
+noscript {
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+
+/*******************
+ anchor tag
+ *******************/
+
+a {
+    text-decoration: none;
+
+}
+
+// debugger
+
+[debug] *:not(path):not(g) {
+    outline: 1px dotted magenta;
+    outline-offset: 2px;
+}
